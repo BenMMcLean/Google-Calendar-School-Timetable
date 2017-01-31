@@ -8,14 +8,6 @@ function Line(subject, room, teacher){
  this.subject = subject
  this.room = room
  this.teacher = teacher
- 
- this.equals = function(compare){
-   if(typeof compare !== "Line"){
-     return false
-   }
-   
-   return (this.subject == compare.subject && this.room == compare.room && this.teacher == compare.teacher)
- }
 }
 
 //Predefined Lines
