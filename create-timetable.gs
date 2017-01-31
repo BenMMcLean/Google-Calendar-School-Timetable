@@ -65,16 +65,19 @@ function createTimetable(calendar, timetable, start, lengthInWeeks, classStart, 
         
         var period = timetable[day][periodNum]
         
-        var periodStart = new Date(currentTime)
-        var periodEnd
-        
-        if(period == RECESS){
-          periodEnd = new Date(currentTime += recessLength)
+        if(period == FREE_LINE){
+          currentTime += periodLength + lengthBetweenPeriods
+          continue
+        }else if(period == RECESS){
+          currentTime += recessLength + lengthBetweenPeriods
+          continue
         }else if(period == LUNCH){
-          periodEnd = new Date(currentTime += lunchLength)
-        }else{
-          periodEnd = new Date(currentTime += periodLength)
+          currentTime += lunchLength + lengthBetweenPeriods
+          continue
         }
+        
+        var periodStart = new Date(currentTime)
+        var periodEnd = new Date(currentTime += periodLength)
         
         var event = calendar.createEvent(period.subject, periodStart, periodEnd)
 
