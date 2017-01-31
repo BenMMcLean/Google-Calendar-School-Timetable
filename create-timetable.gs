@@ -18,7 +18,7 @@ var FREE_LINE = new Line("Free Line", "", "")
 /**
 * Creates a timetable calendar
 * @param calendar A calendar to place events onto
-* @param timetable An array containing the timetable for the week, (using the constants RECESS, LUNCH, and FREE_LINE as required
+* @param timetable An array containing the timetable for the week (using the constants RECESS, LUNCH, and FREE_LINE as required), in the format timetable[day][period]
 * @param start The unix timestamp of midnight on the first day of term
 * @param lengthInWeeks Number of weeks term goes for
 * @param classStart Milliseconds between midnight and start of class
