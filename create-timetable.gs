@@ -1,3 +1,9 @@
+/**
+* Creates an Line object
+* @param subject The name of the subject
+* @param room The room number/name
+* @param teacher The teacher name
+**/
 function Line(subject, room, teacher){
  this.subject = subject
  this.room = room
@@ -12,6 +18,7 @@ function Line(subject, room, teacher){
  }
 }
 
+//Predefined Lines
 var RECESS = new Line("Recess", "", "")
 var LUNCH = new Line("Lunch", "", "")
 var FREE_LINE = new Line("Free Line", "", "")
@@ -29,10 +36,12 @@ var FREE_LINE = new Line("Free Line", "", "")
 * @param lengthBetweenPeriods Milliseconds between periods
 **/
 function createTimetable(calendar, timetable, start, lengthInWeeks, classStart, recessLength, lunchLength, periodLength, lengthBetweenPeriods) {
+  //Check if required information is missing
   if(typeof calendar == "undefined" || typeof timetable == "undefined" || typeof start == "undefined" || typeof lengthInWeeks == "undefined"){
     return undefined
   }
   
+  //Default Values
   if(typeof classStart == "undefined"){
     //9 hours
     classStart = 32400*1000 
@@ -85,6 +94,7 @@ function createTimetable(calendar, timetable, start, lengthInWeeks, classStart, 
       //Add a day
       currentTime = dayStart+=(86400*1000)
       
+      //This bypasses the rate limiting on Google Calendar
       if(day % 3 == 0){
        Utilities.sleep(10000) 
       }
