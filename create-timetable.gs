@@ -80,7 +80,7 @@ function createTimetable(calendar, timetable, start, lengthInWeeks, classStart, 
         var periodEnd = new Date(currentTime += periodLength)
         
         var event = calendar.createEvent(period.subject, periodStart, periodEnd)
-
+        event.setLocation(period.room)
         event.setDescription("Teacher: " + period.teacher + "\nLocation: " + period.room)
         
         currentTime+=lengthBetweenPeriods
